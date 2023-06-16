@@ -1,18 +1,19 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
-    <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
+  <div class="p-8 pb-0">
+    <h1 class="text-4xl font-bold mb-4 text-orange-500">
+      Meals for {{ ingredient.strIngredient }}
+    </h1>
   </div>
-  <div v-if="!meals" class="flex justify-center text-gray-600">
-    There are no meals
-  </div>
+  <Meals :meals="meals" />
 </template>
 <script setup>
 import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import MealItem from "../components/MealItem.vue";
+import Meals from "../components/Meals.vue";
 import store from "../store/store";
 
 const route = useRoute();
+const ingredient = computed(() => store.state.ingredient);
 const meals = computed(() => store.state.mealsByIngredient);
 
 onMounted(() => {
