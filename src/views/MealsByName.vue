@@ -13,7 +13,9 @@
       @change="searchMeals"
     />
   </div>
-  <Meals :meals="meals" />
+  <div class="mt-4">
+    <Meals :meals="meals" />
+  </div>
 </template>
 <script setup>
 import { computed } from "@vue/reactivity";
