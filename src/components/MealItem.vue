@@ -19,11 +19,9 @@
   </div>
 </template>
 <script setup>
+import { onMounted } from "vue";
 import YouTubeBtn from "../components/YouTubeBtn.vue";
 const { meal } = defineProps({
-  meal: {
-    required: true,
-    type: Object,
-  },
+  meal: Object,
 });
 </script>
